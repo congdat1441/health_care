@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "181008017194",
+    "project_id": "test-otp-47037",
+    "storage_bucket": "test-otp-47037.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:181008017194:android:97dc716d59cb522394e053",
+        "android_client_info": {
+          "package_name": "com.example.heath_care"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "181008017194-cb4b6k3hqmv0i2fcffgk64ig92av9nu9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPeLe4I_9fk0UnjA9js7op2ngrvhWeXiU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "181008017194-cb4b6k3hqmv0i2fcffgk64ig92av9nu9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
