@@ -1,6 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_iconly/flutter_iconly.dart';
-
+import 'package:heath_care/view/pages/account_page/sliverbox_content.dart';
 import '../../../res/constants/colors.dart';
 
 class AccountPage extends StatelessWidget {
@@ -11,15 +11,19 @@ class AccountPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorConstant.BackGroundColor,
       body: CustomScrollView(
-        slivers: <Widget>[sliverappbar(), sliverToBoxAdapter()],
+        slivers: <Widget>[
+          sliverappbar(),
+          sliverToBoxAdapter(),
+          const SliverToBoxAdapterContent()
+        ],
       ),
     );
   }
 
   Widget sliverappbar() {
     return SliverAppBar(
-      title: const Padding(
-        padding: EdgeInsets.only(left: 100.0),
+      title: const Align(
+        alignment: Alignment.center,
         child: Text(
           'Account',
           style: TextStyle(
@@ -34,20 +38,10 @@ class AccountPage extends StatelessWidget {
           borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(0), bottomRight: Radius.circular(0))),
       backgroundColor: ColorConstant.BLue05,
-      leading: IconButton(
-        onPressed: () {
-          //Navigator.pop(context);
-        },
-        icon: const Icon(
-          IconlyBroken.arrowLeft,
-          size: 30,
-          color: Colors.white,
-        ),
-      ),
       expandedHeight: 280,
       //collapsedHeight: 70,
       pinned: true,
-
+      automaticallyImplyLeading: false,
       flexibleSpace: FlexibleSpaceBar(
         background: Stack(
           fit: StackFit.expand,
@@ -97,6 +91,33 @@ class AccountPage extends StatelessWidget {
                     ],
                   ),
                 )),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(100, 270, 100, 0),
+              child: Center(
+                child: Column(
+                  children: const [
+                    Text(
+                      "Cong Dat",
+                      style: TextStyle(
+                          height: 1.2,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Poppins',
+                          fontSize: 21,
+                          color: Colors.white),
+                    ),
+                    Text(
+                      "dcd0564895@gmail.com",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400,
+                          fontFamily: 'Poppins',
+                          letterSpacing: 0.1,
+                          fontSize: 13),
+                    )
+                  ],
+                ),
+              ),
+            ),
             Positioned.fill(
                 child: Container(
               decoration: const BoxDecoration(
@@ -118,14 +139,14 @@ class AccountPage extends StatelessWidget {
     return SliverToBoxAdapter(
       child: Container(
         color: ColorConstant.BLue05,
-        height: 20,
+        height: 40,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             Container(
               height: 20,
               decoration: const BoxDecoration(
-                color: Colors.white,
+                color: ColorConstant.BackGroundColor,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20.0),
                   topRight: Radius.circular(20.0),
@@ -137,4 +158,5 @@ class AccountPage extends StatelessWidget {
       ),
     );
   }
+
 }

@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:heath_care/view/widgets/main_page_widget/select_day_order.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:heath_care/view/widgets/main_page_widget/order_widget/select_day_order.dart';
 
-import '../../../res/constants/colors.dart';
-import 'order_sumary.dart';
+import '../../../../res/constants/colors.dart';
+import '../order_sumary.dart';
 
-class OrderDetailClinic extends StatefulWidget {
-  const OrderDetailClinic({Key? key}) : super(key: key);
+class OrderDetailDoctor extends StatefulWidget {
+  const OrderDetailDoctor({Key? key}) : super(key: key);
 
   @override
-  State<OrderDetailClinic> createState() => _OrderDetailClinicState();
+  State<OrderDetailDoctor> createState() => _OrderDetailDoctorState();
 }
 
-class _OrderDetailClinicState extends State<OrderDetailClinic> {
+class _OrderDetailDoctorState extends State<OrderDetailDoctor> {
   bool _isAppBarCollapsed = false;
   int _selectedIndex = -1;
   bool _isExpanded = false;
@@ -79,8 +80,7 @@ class _OrderDetailClinicState extends State<OrderDetailClinic> {
         controller: _scrollController,
         slivers: <Widget>[
           sliverappbar(),
-          chonBacSyTitle(),
-          chonBacSyOption(),
+          thongTinCoBan(),
           chonNgay(),
           chonThoiGian(),
           moTaTrieuChungBenh(),
@@ -94,7 +94,7 @@ class _OrderDetailClinicState extends State<OrderDetailClinic> {
   Widget sliverappbar() {
     return SliverAppBar(
       title: Text(
-        'The CIS Free Clinic',
+        'Dr. Nguyễn Văn A',
         style: TextStyle(
             color: _isAppBarCollapsed ? Colors.black : Colors.white,
             overflow: TextOverflow.ellipsis,
@@ -121,7 +121,8 @@ class _OrderDetailClinicState extends State<OrderDetailClinic> {
 
       expandedHeight: 280,
       //collapsedHeight: 70,
-      pinned: true,
+      //floating: true,
+
       flexibleSpace: FlexibleSpaceBar(
         background: Stack(
           fit: StackFit.expand,
@@ -131,7 +132,7 @@ class _OrderDetailClinicState extends State<OrderDetailClinic> {
                   bottomLeft: Radius.circular(0),
                   bottomRight: Radius.circular(0)),
               child: Image.asset(
-                "assets/images/cisdemo.png",
+                "assets/images/doctor03.jpg",
                 width: double.infinity,
                 fit: BoxFit.cover,
               ),
@@ -146,59 +147,212 @@ class _OrderDetailClinicState extends State<OrderDetailClinic> {
             ))
           ],
         ),
-        stretchModes: const <StretchMode>[
-          StretchMode.zoomBackground,
-        ],
+      ),
+      bottom: PreferredSize(
+        preferredSize: const Size.fromHeight(40),
+        child: Container(
+            decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(20),
+                  topLeft: Radius.circular(20),
+                  //bottomRight: Radius.circular(10),
+                  // bottomLeft: Radius.circular(10)
+                )),
+            margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+            //padding: const EdgeInsets.only(),
+            width: double.maxFinite,
+            height: 90,
+            child: Padding(
+              padding: const EdgeInsets.all(15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  SizedBox(
+                    width: 210,
+                    child: Text(
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      "Dr. Nguyễn Văn A",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 21,
+                        fontFamily: 'Poppins',
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )),
       ),
     );
   }
 
-  Widget chonBacSyTitle() {
+  Widget thongTinCoBan() {
     return SliverToBoxAdapter(
-      child: Container(
-        margin: const EdgeInsets.fromLTRB(10, 10, 20, 0),
-        child: const Text(
-          'Lựa chọn bác sỹ',
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            fontSize: 20.0,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+        child: Container(
+          height: 220,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: const BorderRadius.only(
+                bottomRight: Radius.circular(20),
+                bottomLeft: Radius.circular(20)),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.withOpacity(0.2),
+                  spreadRadius: 0,
+                  blurRadius: 7,
+                  offset: const Offset(0, 10))
+            ],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 5),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      const Icon(
+                        IconlyLight.location,
+                        size: 25,
+                        color: Colors.amber,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
+                        width: 320,
+                        child: const Text("124, Nguyễn Thái Học, Huế",
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                overflow: TextOverflow.ellipsis,
+                                height: 0.9,
+                                fontSize: 16,
+                                color: ColorConstant.Grey01,
+                                fontWeight: FontWeight.w400,
+                                fontFamily: 'Merriweather Sans')),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      ...[1].map((e) => Container(
+                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                            child: const Icon(
+                              IconlyBold.star,
+                              size: 25,
+                              color: Colors.amber,
+                            ),
+                          )),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      const Text("4.5",
+                          style: TextStyle(
+                              height: 1.5,
+                              fontSize: 20,
+                              color: Colors.black87,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Merriweather Sans')),
+                      const SizedBox(width: 180),
+                      Expanded(
+                        flex: 1,
+                        child: TextButton(
+                            onPressed: () {},
+                            child: const Text("xem đánh giá",
+                                style: TextStyle(
+                                    height: 1.5,
+                                    fontSize: 16,
+                                    color: Colors.amber,
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: 'Merriweather Sans'))),
+                      )
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(5, 0, 0, 0.0),
+                        child: Icon(
+                          FontAwesomeIcons.stethoscope,
+                          size: 20,
+                          color: Colors.amber,
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
+                        width: 320,
+                        child: const Text("15 năm kinh nghiệm ",
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                overflow: TextOverflow.ellipsis,
+                                height: 0.9,
+                                fontSize: 16,
+                                color: ColorConstant.Grey01,
+                                fontWeight: FontWeight.w400,
+                                fontFamily: 'Merriweather Sans')),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.fromLTRB(10, 15, 0, 10),
+                        width: 350,
+                        child: const Text("Dịch vụ khám",
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                overflow: TextOverflow.ellipsis,
+                                height: 0.9,
+                                fontSize: 19,
+                                //color: ColorConstant.Grey01,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: 'Merriweather Sans')),
+                      ),
+                    ],
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        ...[1, 2, 3, 4, 5, 6, 7].map((e) => Container(
+                              margin: const EdgeInsets.symmetric(horizontal: 5),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              height: 40,
+                              decoration: BoxDecoration(
+                                border: Border.all(color: ColorConstant.BLue05),
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              child: const Align(
+                                alignment: Alignment.center,
+                                child: Text("#Chăm sóc răng miệng",
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                        overflow: TextOverflow.ellipsis,
+                                        color: ColorConstant.BLue05,
+                                        height: 0.9,
+                                        fontSize: 15,
+                                        //color: ColorConstant.Grey01,
+                                        fontWeight: FontWeight.w500,
+                                        fontFamily: 'Merriweather Sans')),
+                              ),
+                            ))
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
-      ),
-    );
-  }
-
-  Widget chonBacSyOption() {
-    return SliverList(
-      delegate: SliverChildBuilderDelegate(
-        (BuildContext context, int index) {
-          final option = _options[index];
-          return Column(
-            children: <Widget>[
-              RadioListTile<int>(
-                activeColor: ColorConstant.BLue02,
-                title: Text(
-                  option,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: _selectedIndex == index
-                        ? ColorConstant.BLue02
-                        : Colors.grey[800],
-                    fontSize: 17.0,
-                  ),
-                ),
-                value: index,
-                groupValue: _selectedIndex,
-                onChanged: (int? value) {
-                  setState(() {
-                    _selectedIndex = value!;
-                  });
-                },
-              ),
-            ],
-          );
-        },
-        childCount: _options.length,
       ),
     );
   }
@@ -261,7 +415,7 @@ class _OrderDetailClinicState extends State<OrderDetailClinic> {
                         decoration: BoxDecoration(
                           color: _selectedTime == index
                               ? ColorConstant.BLue02
-                              : Colors.grey[300],
+                              : const  Color(0xFFf6f6f6),
                           borderRadius: BorderRadius.circular(20.0),
                         ),
                         child: Center(

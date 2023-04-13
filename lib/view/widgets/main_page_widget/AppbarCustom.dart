@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:heath_care/view/pages/account_page/account_page.dart';
+
 class AppbarCustom extends StatefulWidget {
   const AppbarCustom({Key? key}) : super(key: key);
 
@@ -52,8 +54,24 @@ class _AppbarCustomState extends State<AppbarCustom> {
                         ),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(15),
-                          child: Image.asset('assets/images/ava.PNG',
-                              width: 15, height: 15, fit: BoxFit.cover),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.white,
+                              elevation: 0.75,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(100.0),
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const AccountPage()));
+                            },
+                            child: Image.asset('assets/images/ava.PNG',
+                                width: 40, height: 40, fit: BoxFit.cover),
+                          ),
                         ),
                       ),
                     ),

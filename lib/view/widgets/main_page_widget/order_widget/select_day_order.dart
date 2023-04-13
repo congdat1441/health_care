@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:heath_care/res/constants/colors.dart';
-import '../../../utils/colors_util.dart';
+import '../../../../utils/colors_util.dart';
 import 'package:heath_care/utils/date_utils.dart' as date_util;
 
 class SelectDay extends StatefulWidget {
@@ -96,9 +96,9 @@ class _SelectDayState extends State<SelectDay> {
               gradient: LinearGradient(
                   colors: (currentMonthList[index].day != currentDateTime.day)
                       ? [
-                          const Color(0xFFD6D6D6),
-                          const Color(0xFFD6D6D6),
-                          const Color(0xFFD6D6D6),
+                          const Color(0xFFf6f6f6),
+                          const Color(0xFFf6f6f6),
+                          const Color(0xFFf6f6f6),
                         ]
                       : [
                           HexColor("237be5"),

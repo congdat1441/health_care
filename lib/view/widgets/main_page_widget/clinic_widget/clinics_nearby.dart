@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../res/constants/colors.dart';
-import '../../pages/main_pages/detail_clinic.dart';
+import '../../../../res/constants/colors.dart';
+import '../../../pages/main_pages/clinic/detail_clinic.dart';
 
 class ClinicsNearby extends StatefulWidget {
   const ClinicsNearby({Key? key}) : super(key: key);
@@ -48,7 +48,7 @@ class _ClinicsNearbyState extends State<ClinicsNearby> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(30),
                       child: Image.asset(
-                          'assets/images/cisdemo.png',
+                          'assets/images/dongbar.jpg',
                           fit: BoxFit.cover,
                           scale: 4),
                     ),

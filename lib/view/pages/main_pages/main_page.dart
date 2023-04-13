@@ -7,8 +7,8 @@ import 'package:provider/provider.dart';
 import '../../../../providers/bottom_navbar_provider.dart';
 import '../../../../res/constants/colors.dart';
 import '../../widgets/main_page_widget/AppbarCustom.dart';
-import '../../widgets/main_page_widget/clinics_nearby.dart';
-import '../../widgets/main_page_widget/doctors.dart';
+import '../../widgets/main_page_widget/clinic_widget/clinics_nearby.dart';
+import '../../widgets/main_page_widget/doctor_widget/doctors.dart';
 import '../../widgets/main_page_widget/favorite_infos.dart';
 
 class MainPage extends StatefulWidget {

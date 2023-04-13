@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:heath_care/providers/bottom_navbar_provider.dart';
 import 'package:heath_care/view/pages/login_signup_page/log_in.dart';
-import 'package:heath_care/view/pages/main_pages/detail_clinic.dart';
+import 'package:heath_care/view/pages/main_pages/clinic/detail_clinic.dart';
 import 'package:provider/provider.dart';
 
 void main() {

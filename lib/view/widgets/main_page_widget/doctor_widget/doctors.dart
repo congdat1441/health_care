@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:heath_care/view/pages/main_pages/doctor/detail_doctor.dart';
 
-import '../../../res/constants/colors.dart';
+import '../../../../res/constants/colors.dart';
 
 class Doctors extends StatefulWidget {
   const Doctors({Key? key}) : super(key: key);
@@ -58,13 +59,24 @@ class _DoctorsState extends State<Doctors> {
                                   offset: const Offset(0, 20))
                             ],
                           ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: Image.asset(
-                              'assets/images/doctor03.jpg',
-                              fit: BoxFit.fitWidth,
+                          child: Ink(
+                            decoration: BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailDoctor()));
+                              },
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: Image.asset(
+                                  'assets/images/doctor03.jpg',
+                                  fit: BoxFit.fitWidth,
 
-                              //scale: 30,
+                                  //scale: 30,
+                                ),
+                              ),
                             ),
                           ),
                         ),
