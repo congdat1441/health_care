@@ -48,7 +48,7 @@ class _ClinicsNearbyState extends State<ClinicsNearby> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(30),
                       child: Image.asset(
-                          'assets/images/dongbar.jpg',
+                          'assets/images/cisdemo.png',
                           fit: BoxFit.cover,
                           scale: 4),
                     ),
