@@ -72,13 +72,11 @@ class _ClinicsNearbyState extends State<ClinicsNearby> {
                         const SizedBox(
                           height: 3,
                         ),
-                        const Expanded(
+                         Expanded(
                           flex: 1,
-                          child: SizedBox(
-                              width: 190,
-                              //height: 40,
-                              //color: Colors.grey,
-                              child: Text("Thứ 2 - Thứ 6",
+                          child: Row(
+                            children: const [
+                              Text("Thứ 2 - Thứ 6 ",
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
@@ -86,7 +84,18 @@ class _ClinicsNearbyState extends State<ClinicsNearby> {
                                       fontSize: 15,
                                       color: ColorConstant.Grey01,
                                       fontWeight: FontWeight.w400,
-                                      fontFamily: 'Merriweather Sans'))),
+                                      fontFamily: 'Merriweather Sans')),
+                              Text("8AM - 17PM",
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      height: 0.9,
+                                      fontSize: 15,
+                                      color: ColorConstant.Grey01,
+                                      fontWeight: FontWeight.w400,
+                                      fontFamily: 'Merriweather Sans')),
+                            ],
+                          ),
                         ),
                         Expanded(
                           flex: 1,

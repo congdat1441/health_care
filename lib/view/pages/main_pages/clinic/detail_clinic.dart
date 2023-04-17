@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:heath_care/view/pages/main_pages/clinic/order_detail_clinic.dart';
+import 'package:heath_care/view/pages/review_page/review_clinic_page/review_clinic.dart';
 import '../../../../../res/constants/colors.dart';
 import 'package:flutter_expandable_text/flutter_expandable_text.dart';
 
@@ -45,6 +44,7 @@ class _DetailClinicState extends State<DetailClinic>
       ),
     );
   }
+
   Widget sliverAppBar() {
     return SliverAppBar(
       title: const Padding(
@@ -60,8 +60,7 @@ class _DetailClinicState extends State<DetailClinic>
         ),
       ),
       shape: const ContinuousRectangleBorder(
-          borderRadius:
-          BorderRadius.vertical(bottom: Radius.circular(30))),
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(30))),
       collapsedHeight: 80,
       backgroundColor: Colors.transparent,
       leading: IconButton(
@@ -106,12 +105,12 @@ class _DetailClinicState extends State<DetailClinic>
             ),
             Positioned.fill(
                 child: Container(
-                  decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.center,
-                          colors: [Colors.black87, Colors.transparent])),
-                ))
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.center,
+                      colors: [Colors.black87, Colors.transparent])),
+            ))
           ],
         ),
         stretchModes: const <StretchMode>[
@@ -139,52 +138,32 @@ class _DetailClinicState extends State<DetailClinic>
               padding: const EdgeInsets.all(15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const SizedBox(
+                children: const [
+                  SizedBox(
                     width: 210,
                     child: Text(
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       "The CIS Fre Clinic",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500, fontSize: 21),
+                      style:
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 21),
                     ),
                   ),
                   SizedBox(
                     width: 100,
-                    child: Column(
-                      children: [
-                        RichText(
-                            text: const TextSpan(children: [
-                              TextSpan(
-                                  text: "150,000đ -",
-                                  style: TextStyle(
-                                      overflow: TextOverflow.ellipsis,
-                                      height: 0,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color(0xfffcb13d),
-                                      fontSize: 20)),
-                              WidgetSpan(
-                                  child: Padding(
-                                      padding:
-                                      EdgeInsets.fromLTRB(12, 0, 0, 0),
-                                      child: Text("300,000đ",
-                                          style: TextStyle(
-                                              overflow: TextOverflow.ellipsis,
-                                              height: 1.3,
-                                              fontWeight: FontWeight.w500,
-                                              color: Color(0xfffcb13d),
-                                              fontSize: 20))))
-                            ])),
-                      ],
-                    ),
+                    child: Text("150,000đ",
+                        style: TextStyle(
+                            overflow: TextOverflow.ellipsis,
+                            height: 0,
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xfffcb13d),
+                            fontSize: 20)),
                   )
                 ],
               ),
             )),
       ),
     );
-
   }
 
   Widget diaChivaReview() {
@@ -192,7 +171,7 @@ class _DetailClinicState extends State<DetailClinic>
       child: Padding(
         padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
         child: Container(
-          height: 200,
+          height: 270,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: const BorderRadius.only(
@@ -207,21 +186,34 @@ class _DetailClinicState extends State<DetailClinic>
             ],
           ),
           child: Padding(
-            padding:
-            const EdgeInsets.symmetric(vertical: 1, horizontal: 5),
+            padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 5),
             child: Column(
               children: [
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
+                      width: 215,
                       padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
-                      width: 350,
                       child: const Text("124, Nguyễn Thái Học, Huế",
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                               overflow: TextOverflow.ellipsis,
-                              height: 0.9,
+                              height: 1,
+                              fontSize: 16,
+                              color: ColorConstant.Grey01,
+                              fontWeight: FontWeight.w400,
+                              fontFamily: 'Merriweather Sans')),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
+                      child: const Text("lH: 0805179559",
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              overflow: TextOverflow.ellipsis,
+                              height: 1,
                               fontSize: 16,
                               color: ColorConstant.Grey01,
                               fontWeight: FontWeight.w400,
@@ -235,10 +227,10 @@ class _DetailClinicState extends State<DetailClinic>
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       ...[1, 2, 3, 4, 5].map((e) => const Icon(
-                        IconlyBold.star,
-                        size: 25,
-                        color: Colors.amber,
-                      )),
+                            IconlyBold.star,
+                            size: 25,
+                            color: Colors.amber,
+                          )),
                       const SizedBox(
                         width: 5,
                       ),
@@ -253,8 +245,10 @@ class _DetailClinicState extends State<DetailClinic>
                       Expanded(
                         flex: 1,
                         child: TextButton(
-                            onPressed: () {},
-                            child: const Text("Reviews",
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> const ReviewClinic()));
+                            },
+                            child: const Text("Đánh giá",
                                 style: TextStyle(
                                     height: 1.5,
                                     fontSize: 20,
@@ -268,7 +262,7 @@ class _DetailClinicState extends State<DetailClinic>
                 Row(
                   children: [
                     Container(
-                      padding: const EdgeInsets.fromLTRB(10, 15, 0, 0),
+                      padding: const EdgeInsets.fromLTRB(10, 15, 0, 10),
                       width: 350,
                       child: const Text("Dịch vụ khám",
                           maxLines: 2,
@@ -287,81 +281,119 @@ class _DetailClinicState extends State<DetailClinic>
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      Container(
-                          padding:
-                          const EdgeInsets.fromLTRB(10, 10, 0, 5),
-                          width: 350,
-                          child: const GNav(
-                            rippleColor: Colors.white,
-                            hoverColor: Colors.white,
-                            gap: 10,
-                            activeColor: ColorConstant.BLue01,
-                            iconSize: 25,
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 15, vertical: 15),
-                            duration: Duration(milliseconds: 600),
-                            color: Color(0xff02528a),
-                            tabs: [
-                              GButton(
-                                //onPressed: () {null;},
-                                icon:
-                                FontAwesomeIcons.houseChimneyMedical,
-                                text: 'Home',
-                              ),
-                              GButton(
-                                  icon:
-                                  FontAwesomeIcons.wandMagicSparkles,
-                                  text: 'Schedule'),
-                              GButton(
-                                icon: FontAwesomeIcons.fileMedical,
-                                text: 'History',
-                              ),
-                              GButton(
-                                icon: IconlyBold.profile,
-                                iconSize: 35,
-                                text: 'Profile',
-                              ),
-                            ],
-                          )),
-                      Container(
-                          padding:
-                          const EdgeInsets.fromLTRB(10, 10, 0, 5),
-                          width: 350,
-                          child: const GNav(
-                            rippleColor: Colors.white,
-                            hoverColor: Colors.white,
-                            gap: 10,
-                            activeColor: ColorConstant.BLue01,
-                            iconSize: 25,
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 15, vertical: 15),
-                            duration: Duration(milliseconds: 600),
-                            //tabBackgroundColor: Color(0xFF0697f3),
-                            color: Color(0xff02528a),
-                            tabs: [
-                              GButton(
-                                //onPressed: () {null;},
-                                icon:
-                                FontAwesomeIcons.houseChimneyMedical,
-                                text: 'Home',
-                              ),
-                              GButton(
-                                  icon:
-                                  FontAwesomeIcons.wandMagicSparkles,
-                                  text: 'Schedule'),
-                              GButton(
-                                icon: FontAwesomeIcons.fileMedical,
-                                text: 'History',
-                              ),
-                              GButton(
-                                icon: IconlyBold.profile,
-                                iconSize: 35,
-                                text: 'Profile',
-                              ),
-                            ],
-                          )),
+                      ...[1, 2, 3, 4, 5, 6, 7].map((e) => Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 5),
+                        padding:
+                        const EdgeInsets.symmetric(horizontal: 10),
+                        height: 40,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: ColorConstant.BLue05),
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        child: const Align(
+                          alignment: Alignment.center,
+                          child: Text("#Chăm sóc răng miệng",
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  overflow: TextOverflow.ellipsis,
+                                  color: ColorConstant.BLue05,
+                                  height: 0.9,
+                                  fontSize: 15,
+                                  //color: ColorConstant.Grey01,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Merriweather Sans')),
+                        ),
+                      ))
                     ],
                   ),
+                ),
+                Row(
+                  textBaseline: TextBaseline.alphabetic,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.fromLTRB(10, 15, 0, 10),
+
+                      child: const Text("Giờ làm việc: ",
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              overflow: TextOverflow.ellipsis,
+                              height: 1,
+                              fontSize: 19,
+                              //color: ColorConstant.Grey01,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Merriweather Sans')),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.fromLTRB(10, 15, 0, 10),
+                      child: const Text("Thứ 2-Thứ 7 ",
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              overflow: TextOverflow.ellipsis,
+                              height: 1,
+                              fontSize: 16,
+                              color: ColorConstant.Grey01,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Merriweather Sans')),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.fromLTRB(10, 15, 0, 10),
+                      child: const Text("||",
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              overflow: TextOverflow.ellipsis,
+                              height: 0.9,
+                              fontSize: 16,
+                              color: ColorConstant.Grey01,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Merriweather Sans')),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.fromLTRB(10, 15, 0, 10),
+                      child: const Text("8A.M - 17P.M",
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              overflow: TextOverflow.ellipsis,
+                              height: 0.9,
+                              fontSize: 16,
+                              color: ColorConstant.Grey01,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Merriweather Sans')),
+                    ),
+                  ],
+                ),
+                Row(
+                  textBaseline: TextBaseline.alphabetic,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.fromLTRB(10, 5, 0, 10),
+
+                      child: const Text("Trạng thái: ",
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              overflow: TextOverflow.ellipsis,
+                              height: 0.9,
+                              fontSize: 19,
+                              //color: ColorConstant.Grey01,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Merriweather Sans')),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.fromLTRB(10, 5, 0, 10),
+                      child: const Text("Available",
+                          style: TextStyle(
+                              fontSize: 16,
+                              letterSpacing: 0.1,
+                              color: Colors.green,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Merriweather Sans')),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -400,8 +432,7 @@ class _DetailClinicState extends State<DetailClinic>
                     ),
                   ],
                   indicatorWeight: 2,
-                  indicatorPadding:
-                  const EdgeInsets.symmetric(horizontal: 30),
+                  indicatorPadding: const EdgeInsets.symmetric(horizontal: 30),
                   labelColor: Colors.blue,
                   unselectedLabelColor: ColorConstant.Grey01,
                 ),
@@ -470,8 +501,8 @@ class _DetailClinicState extends State<DetailClinic>
                       ),
                       readMoreText: 'Xem thêm',
                       readLessText: 'Thu gọn',
-                      linkTextStyle: TextStyle(
-                          color: Colors.blue, fontSize: 15),
+                      linkTextStyle:
+                          TextStyle(color: Colors.blue, fontSize: 15),
                     ),
                   ],
                 ),
@@ -626,6 +657,3 @@ class _DetailClinicState extends State<DetailClinic>
     );
   }
 }
-
-
-
