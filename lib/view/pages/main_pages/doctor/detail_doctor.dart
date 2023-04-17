@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_expandable_text/flutter_expandable_text.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:heath_care/view/pages/review_page/review_doctor_page/review_doctor.dart';
 import '../../../../res/constants/colors.dart';
 import 'order_detail_doctor.dart';
 
@@ -275,7 +276,9 @@ class _DetailDoctorState extends State<DetailDoctor>
                       Expanded(
                         flex: 1,
                         child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> const ReviewDoctor()));
+                            },
                             child: const Text("xem đánh giá",
                                 style: TextStyle(
                                     height: 1.5,

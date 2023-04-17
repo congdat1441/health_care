@@ -5,6 +5,7 @@ import '../../widgets/main_page_widget/order_widget/describe_problem.dart';
 import '../../widgets/main_page_widget/order_widget/info_order_detail.dart';
 import '../../widgets/main_page_widget/order_widget/price_order.dart';
 import '../history_page/note_from_doctor.dart';
+import '../review_page/review_doctor_page/add_review_doctor.dart';
 
 class ScheduleDetailFinish extends StatefulWidget {
   const ScheduleDetailFinish({Key? key}) : super(key: key);
@@ -56,7 +57,6 @@ class _ScheduleDetailFinishState extends State<ScheduleDetailFinish> {
               MoTaTrieuChung(),
               ChiPhiDuKien(),
               NoteFromDoctor(),
-
               SizedBox(
                 height: 50,
               )
@@ -65,7 +65,6 @@ class _ScheduleDetailFinishState extends State<ScheduleDetailFinish> {
       bottomNavigationBar: bottomNavigatorBar(),
     );
   }
-
 
   Widget bottomNavigatorBar() {
     return Container(
@@ -82,7 +81,7 @@ class _ScheduleDetailFinishState extends State<ScheduleDetailFinish> {
       padding: const EdgeInsets.fromLTRB(10, 0, 20, 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children:  const [
+        children: const [
           Padding(
             padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: SizedBox(
@@ -104,19 +103,27 @@ class _ScheduleDetailFinishState extends State<ScheduleDetailFinish> {
   Widget themNhanXet() {
     return Padding(
         padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-        child: Container(
-          width: double.maxFinite,
-          height: 40,
-          decoration: BoxDecoration(
-              border: Border.all(width: 1, color: Colors.amber),
-              borderRadius: BorderRadius.circular(20)),
-          child: const Center(
-            child: Text(
-              "Thêm nhận xét",
-              style: TextStyle(
-                  fontSize: 21,
-                  color: Colors.amber,
-                  fontWeight: FontWeight.w600),
+        child: InkWell(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const AddReviewDoctor()));
+          },
+          child: Container(
+            width: double.maxFinite,
+            height: 40,
+            decoration: BoxDecoration(
+                border: Border.all(width: 1, color: Colors.amber),
+                borderRadius: BorderRadius.circular(20)),
+            child: const Center(
+              child: Text(
+                "Thêm nhận xét",
+                style: TextStyle(
+                    fontSize: 21,
+                    color: Colors.amber,
+                    fontWeight: FontWeight.w600),
+              ),
             ),
           ),
         ));
