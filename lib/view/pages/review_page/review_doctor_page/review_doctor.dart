@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:heath_care/view/pages/review_page/review_clinic_page/add_review_clinic.dart';
 
 import '../../../../res/constants/colors.dart';
 
-class ReviewClinic extends StatefulWidget {
-  const ReviewClinic({Key? key}) : super(key: key);
+class ReviewDoctor extends StatefulWidget {
+  const ReviewDoctor({Key? key}) : super(key: key);
 
   @override
-  State<ReviewClinic> createState() => _ReviewClinicState();
+  State<ReviewDoctor> createState() => _ReviewDoctorState();
 }
 
-class _ReviewClinicState extends State<ReviewClinic> {
+class _ReviewDoctorState extends State<ReviewDoctor> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +24,7 @@ class _ReviewClinicState extends State<ReviewClinic> {
           backgroundColor: ColorConstant.BackGroundColor,
           title: const Center(
             child: Text(
-              "Đánh giá phòng khám",
+              "Đánh giá bác sỹ",
               style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w500,
@@ -47,7 +46,7 @@ class _ReviewClinicState extends State<ReviewClinic> {
           actions: [
             IconButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const AddReviewClinic()));
+                  // Navigator.push(context, MaterialPageRoute(builder: (context) => const AddReviewClinic()));
                 },
                 icon: const Icon(
                   IconlyLight.editSquare,
@@ -67,7 +66,7 @@ class _ReviewClinicState extends State<ReviewClinic> {
       child: Padding(
         padding: const EdgeInsets.fromLTRB(20, 20, 10, 0),
         child: Column(
-          children: [starAndVoted(), commentsClinic()],
+          children: [starAndVoted(), commentsDoctor()],
         ),
       ),
     );
@@ -94,10 +93,10 @@ class _ReviewClinicState extends State<ReviewClinic> {
                   Row(
                     children: [
                       ...[1, 2, 3, 4, 5].map((e) => const Icon(
-                            IconlyBold.star,
-                            size: 30,
-                            color: Colors.amber,
-                          )),
+                        IconlyBold.star,
+                        size: 30,
+                        color: Colors.amber,
+                      )),
                     ],
                   )
                 ],
@@ -191,126 +190,126 @@ class _ReviewClinicState extends State<ReviewClinic> {
     );
   }
 
-  Widget commentsClinic() {
+  Widget commentsDoctor() {
     return Column(
       children: [
         ...[1, 2, 3, 4, 5, 6].map((e) => Container(
-              margin: const EdgeInsets.fromLTRB(0, 15, 5, 10),
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(20)),
-              child: Column(
+          margin: const EdgeInsets.fromLTRB(0, 15, 5, 10),
+          decoration: BoxDecoration(
+              color: Colors.white, borderRadius: BorderRadius.circular(20)),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                            child: Stack(
-                              children: [
-                                Container(
-                                  width: 60,
-                                  height: 60,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(100),
-                                    boxShadow: [
-                                      BoxShadow(
-                                          color: Colors.grey.withOpacity(0.1),
-                                          spreadRadius: 0.1,
-                                          blurRadius: 2,
-                                          offset: const Offset(0, 5))
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(5),
-                                  child: Container(
-                                    width: 50,
-                                    height: 50,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(100),
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Colors.grey.withOpacity(0.2),
-                                            spreadRadius: 1,
-                                            blurRadius: 2,
-                                            offset: const Offset(0, 5))
-                                      ],
-                                    ),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(60),
-                                      child: Image.asset(
-                                          'assets/images/ava.PNG',
-                                          width: 60,
-                                          height: 60,
-                                          fit: BoxFit.cover),
-                                    ),
-                                  ),
-                                ),
-                              ],
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        child: Stack(
+                          children: [
+                            Container(
+                              width: 60,
+                              height: 60,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(100),
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Colors.grey.withOpacity(0.1),
+                                      spreadRadius: 0.1,
+                                      blurRadius: 2,
+                                      offset: const Offset(0, 5))
+                                ],
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  "Jonh Wick",
-                                  style: TextStyle(
-                                      fontSize: 22,
-                                      height: 0.8,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w500),
-                                ),
-                                Row(
-                                  children: [
-                                    ...[1, 2, 3, 4].map((e) => const Icon(
-                                          IconlyBold.star,
-                                          size: 25,
-                                          color: Colors.amber,
-                                        )),
-                                    const Icon(
-                                      IconlyBold.star,
-                                      size: 25,
-                                      color: ColorConstant.Grey00,
-                                    )
+                            Padding(
+                              padding: const EdgeInsets.all(5),
+                              child: Container(
+                                width: 50,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(100),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color: Colors.grey.withOpacity(0.2),
+                                        spreadRadius: 1,
+                                        blurRadius: 2,
+                                        offset: const Offset(0, 5))
                                   ],
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(60),
+                                  child: Image.asset(
+                                      'assets/images/ava.PNG',
+                                      width: 60,
+                                      height: 60,
+                                      fit: BoxFit.cover),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              "Jonh Wick",
+                              style: TextStyle(
+                                  fontSize: 22,
+                                  height: 0.8,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            Row(
+                              children: [
+                                ...[1, 2, 3, 4].map((e) => const Icon(
+                                  IconlyBold.star,
+                                  size: 25,
+                                  color: Colors.amber,
+                                )),
+                                const Icon(
+                                  IconlyBold.star,
+                                  size: 25,
+                                  color: ColorConstant.Grey00,
                                 )
                               ],
-                            ),
-                          ),
-                        ],
+                            )
+                          ],
+                        ),
                       ),
-                      const Text(
-                        "15 Apr, 2023",
-                        style: TextStyle(
-                            color: ColorConstant.Grey01,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 15,
-                            fontFamily: 'Poppins'),
-                      )
                     ],
                   ),
-                  Container(
-                    margin: const EdgeInsets.only(left: 70, top: 20),
-                    width: 280,
-                    child: const Text(
-                      "sit amet saidunt ante. Nullam fringilla, justo nec ultrices euismod, velit ipsum congue arcu, vel gravida eros mauris sit amet lorem. Mauris tincidunt justo sed nunc pretium fermentum. Vivamus vel aliquam enim. Vivamus tincidunt nunc eu orci venenatis,",
-                      style: TextStyle(
-                        fontFamily: "Poppins",
+                  const Text(
+                    "15 Apr, 2023",
+                    style: TextStyle(
+                        color: ColorConstant.Grey01,
                         fontWeight: FontWeight.w500,
-                        color: Colors.black,
-                        height: 1.4,
                         fontSize: 15,
-                      ),
-                    ),
+                        fontFamily: 'Poppins'),
                   )
                 ],
               ),
-            ))
+              Container(
+                margin: const EdgeInsets.only(left: 70, top: 20),
+                width: 280,
+                child: const Text(
+                  "sit amet saidunt ante. Nullam fringilla, justo nec ultrices euismod, velit ipsum congue arcu, vel gravida eros mauris sit amet lorem. Mauris tincidunt justo sed nunc pretium fermentum. Vivamus vel aliquam enim. Vivamus tincidunt nunc eu orci venenatis,",
+                  style: TextStyle(
+                    fontFamily: "Poppins",
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black,
+                    height: 1.4,
+                    fontSize: 15,
+                  ),
+                ),
+              )
+            ],
+          ),
+        ))
       ],
     );
   }
